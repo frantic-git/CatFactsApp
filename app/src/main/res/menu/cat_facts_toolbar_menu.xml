@@ -2,13 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-            android:id="@+id/search"
-            android:icon="@drawable/cat_facts_search"
-            android:title="@string/cat_facts_search"
+            android:id="@+id/favorite"
+            android:icon="@drawable/cat_facts_favorite_border"
+            android:title="@string/favorite"
             app:showAsAction="ifRoom" />
-    <item
-            android:id="@+id/filter"
-            android:icon="@drawable/cat_facts_filter"
-            android:title="@string/cat_facts_filter"
-            app:showAsAction="ifRoom" />
+
 </menu>

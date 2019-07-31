@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface CatFactsAPI {
 
-    @GET("facts/random?animal_type=cat&amount=100")
+    @GET("facts/random?animal_type=cat&amount=15")
     suspend fun getRandomCatFactsList(): Response<List<CatFact>>
 
 }

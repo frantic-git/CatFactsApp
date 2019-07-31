@@ -5,8 +5,8 @@
     <color name="colorPrimaryDark">#344955</color>
     <color name="colorAccent">#4A6572</color>
     <color name="textColorPrimary">#232F34</color>
-    <color name="toolbarIconColor">#232F34</color>
-    <color name="productGridBackgroundColor">#eceff1</color>
+    <color name="toolbarIconColor">#b0bec5</color>
+    <color name="catFactBackgroundColor">#eceff1</color>
     <color name="loginPageBackgroundColor">#eceff1</color>
     <color name="colorSecondary">#F9AA33</color>
 

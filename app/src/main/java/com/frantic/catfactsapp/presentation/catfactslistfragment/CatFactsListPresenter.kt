@@ -29,12 +29,12 @@ class CatFactsListPresenter : MvpPresenter<CatFactsListMvpView>() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun btnFavoriteOnClick(event : Events.OnBtnFavoriteClickReceived){
-        DataInteractor.updatePreference(event.id, event.preference)
+        DataInteractor.updatePreference(event.adapterPositon, event.id, event.preference)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onUpdatePreference(event: Events.OnUpdatePreferenceReceived){
-
+        viewState.updatePreference(event.adapterPositon, event.preference)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

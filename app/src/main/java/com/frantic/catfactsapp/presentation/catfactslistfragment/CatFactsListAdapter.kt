@@ -11,6 +11,7 @@ import com.frantic.catfactsapp.R
 import com.frantic.catfactsapp.other.events.Events
 import com.frantic.catfactsapp.other.navigation.Screens
 import kotlinx.android.synthetic.main.cat_fact_item.view.*
+import org.greenrobot.eventbus.EventBus
 
 class CatFactsListAdapter : RecyclerView.Adapter<CatFactsListAdapter.ViewHolder>() {
 
@@ -27,7 +28,7 @@ class CatFactsListAdapter : RecyclerView.Adapter<CatFactsListAdapter.ViewHolder>
     override fun onBindViewHolder(holder: CatFactsListAdapter.ViewHolder, position: Int) {
         holder.catFactId.text = itemsList[position].id
         holder.catFactText.text = itemsList[position].text
-        if(itemsList[position].preference) {
+        if (itemsList[position].preference) {
             holder.btnFavorite.setImageDrawable(App.context!!.getDrawable(R.drawable.cat_facts_favorite))
         } else {
             holder.btnFavorite.setImageDrawable(App.context!!.getDrawable(R.drawable.cat_facts_favorite_border))
@@ -41,22 +42,33 @@ class CatFactsListAdapter : RecyclerView.Adapter<CatFactsListAdapter.ViewHolder>
         notifyDataSetChanged()
     }
 
+    fun updateItemPreference(adapterPosition: Int, preference: Boolean) {
+        itemsList[adapterPosition].preference = preference
+        notifyItemChanged(adapterPosition)
+    }
+
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val catFactId = view.catfact_id
         val catFactText = view.catfact_text
         val btnFavorite = view.btnFavorite
 
-        init{
+        init {
             btnFavorite.setOnClickListener { btnFavoriteOnClick() }
             view.setOnClickListener { onClickView() }
         }
 
-        private fun btnFavoriteOnClick(){
+        private fun btnFavoriteOnClick() {
             val curPosition = this@CatFactsListAdapter.itemsList[adapterPosition]
-            Events.OnBtnFavoriteClickReceived(curPosition.id, curPosition.preference)
+            EventBus.getDefault().post(
+                Events.OnBtnFavoriteClickReceived(
+                    adapterPosition,
+                    curPosition.id,
+                    curPosition.preference
+                )
+            )
         }
 
-        private fun onClickView(){
+        private fun onClickView() {
             val data = Bundle()
             data.putString("catFactId", this@CatFactsListAdapter.itemsList[adapterPosition].id)
             App.fragmentRouter.replace(Screens.FRAGMENTS.CAT_FACT_FRAGMENT, data)

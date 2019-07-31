@@ -3,12 +3,18 @@ package com.frantic.catfactsapp.presentation.catfactslistfragment
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.frantic.catfactsapp.App
 import com.frantic.catfactsapp.R
+import com.frantic.catfactsapp.data.repository.CatFactsRepository
+import com.frantic.catfactsapp.other.navigation.Screens
 import kotlinx.android.synthetic.main.fragment_cat_facts_list.*
 import kotlinx.android.synthetic.main.fragment_cat_facts_list.view.*
 import java.lang.Exception
@@ -38,6 +44,15 @@ class CatFactsListFragment :  MvpAppCompatFragment(), CatFactsListMvpView {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        if (item?.itemId == R.id.favorite){
+            App.fragmentRouter.replace(Screens.FRAGMENTS.CAT_FAVORITE_LIST_FRAGMENT, null)
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun refresh() {
     }
 
@@ -45,17 +60,20 @@ class CatFactsListFragment :  MvpAppCompatFragment(), CatFactsListMvpView {
         adapter.setItemsList(itemsList)
     }
 
+    override fun updatePreference(adapterPosition: Int, preference: Boolean) {
+        adapter.updateItemPreference(adapterPosition, preference)
+    }
+
     override fun showDataBaseException(e: Exception) {
         Log.d("db_exception", e.toString())
-        Toast.makeText(activity,e.toString(),Toast.LENGTH_LONG).show()
     }
 
     override fun onStartLoading() {
-        facts_progressBar.visibility = View.VISIBLE
+        facts_progressBar.visibility = ProgressBar.VISIBLE
     }
 
     override fun onFinishLoading() {
-        facts_progressBar.visibility = View.GONE
+        facts_progressBar.visibility = ProgressBar.GONE
     }
 
     override fun onStart() {

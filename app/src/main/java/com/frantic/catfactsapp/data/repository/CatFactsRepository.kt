@@ -62,6 +62,18 @@ object CatFactsRepository {
         return catFactItems
     }
 
+    fun getFavoriteCatFacts(): MutableList<CatFactItem>? {
+        val catFactItems = mutableListOf<CatFactItem>()
+
+        if (App.currentUserId != null) {
+            val catFavoriteList = App.catFactsDataBase
+                ?.catFactsDao()
+                ?.getFavoriteCatFacts(App.currentUserId!!)
+            if (catFavoriteList != null) return catFavoriteList
+        }
+        return catFactItems
+    }
+
     fun getCatFact(id: String): CatFactsEntity? {
         val catFactsList = App.catFactsDataBase?.catFactsDao()?.getCatFact(id)
         catFactsList ?: return null
@@ -69,19 +81,21 @@ object CatFactsRepository {
         return null
     }
 
-    fun updatePreference(id: String, preference: Boolean) {
+    fun updatePreference(id: String, preference: Boolean): Boolean {
         try {
             if (preference) {
                 App.catFactsDataBase
                     ?.catFactsDao()
-                    ?.insertPreference(PreferencesEntity(App.currentUserId!!, id))
+                    ?.deletePreference(App.currentUserId!!, id)
             } else {
                 App.catFactsDataBase
                     ?.catFactsDao()
-                    ?.deletePreference(App.currentUserId!!, id)
+                    ?.insertPreference(PreferencesEntity(App.currentUserId!!, id))
             }
+            return true
         } catch (e: Exception) {
             EventBus.getDefault().post(Events.OnDataBaseExceptionReceived(e))
         }
+        return false
     }
 }

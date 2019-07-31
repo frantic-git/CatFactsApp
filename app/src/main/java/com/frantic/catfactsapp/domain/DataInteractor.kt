@@ -5,6 +5,7 @@ import com.frantic.catfactsapp.data.net.retrofit.RetrofitRepository
 import com.frantic.catfactsapp.data.repository.CatFactsRepository
 import com.frantic.catfactsapp.other.events.Events
 import com.frantic.catfactsapp.presentation.catfactslistfragment.CatFactItem
+import com.frantic.catfactsapp.presentation.catfactslistfragment.CatFactsListAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -50,19 +51,32 @@ object DataInteractor {
         }
     }
 
+    fun getCatFavoriteList() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val catFavoriteList = CatFactsRepository.getFavoriteCatFacts()
+            if (catFavoriteList != null) {
+                EventBus.getDefault().post(Events.OnGetCatFavoriteListReceived(catFavoriteList))
+            }
+        }
+    }
+
     fun getCatFact(id: String) {
         GlobalScope.launch(Dispatchers.IO) {
             val catFact = CatFactsRepository.getCatFact(id)
-            if (catFact != null){
+            if (catFact != null) {
                 EventBus.getDefault().post(Events.OnGetCatFactReceived(catFact))
             }
         }
     }
 
-    fun updatePreference(id: String, preference: Boolean){
+    fun updatePreference(adapterPosition: Int, id: String, preference: Boolean) {
         GlobalScope.launch(Dispatchers.IO) {
-            CatFactsRepository.updatePreference(id, preference)
-            EventBus.getDefault().post(Events.OnUpdatePreferenceReceived(id, preference))
+            val success = CatFactsRepository.updatePreference(id, preference)
+            if (success) {
+                EventBus
+                    .getDefault()
+                    .post(Events.OnUpdatePreferenceReceived(adapterPosition, !preference))
+            }
         }
     }
 

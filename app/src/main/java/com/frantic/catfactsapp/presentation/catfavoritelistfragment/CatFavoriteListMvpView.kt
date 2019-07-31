@@ -1,20 +1,18 @@
-package com.frantic.catfactsapp.presentation.catfactslistfragment
+package com.frantic.catfactsapp.presentation.catfavoritelistfragment
 
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.SkipStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import com.frantic.catfactsapp.presentation.catfactslistfragment.CatFactItem
 import java.lang.Exception
 
-interface CatFactsListMvpView : MvpView {
+interface CatFavoriteListMvpView : MvpView {
 
     @StateStrategyType(SkipStrategy::class)
     fun refresh()
 
     @StateStrategyType(SkipStrategy::class)
     fun setItemList(itemsList: MutableList<CatFactItem>)
-
-    @StateStrategyType(SkipStrategy::class)
-    fun updatePreference(adapterPosition: Int, preference: Boolean)
 
     @StateStrategyType(SkipStrategy::class)
     fun onStartLoading()

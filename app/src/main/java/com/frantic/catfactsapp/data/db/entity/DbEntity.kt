@@ -26,8 +26,8 @@ class CatFactsEntity(
     @ColumnInfo(name = Fields.CREATE_DATE_FIELD) val createDate: String
 )
 
-@Entity(tableName = Tables.PREFERENCES_TABLE)
+@Entity(tableName = Tables.PREFERENCES_TABLE, primaryKeys = ["id",Fields.NET_ID_FIELD])
 class PreferencesEntity(
-    @PrimaryKey(autoGenerate = false) val id: Long,
+    @ColumnInfo(name = "id") val id: Long,
     @ColumnInfo(name = Fields.NET_ID_FIELD) val netId: String
 )
