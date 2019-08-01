@@ -1,69 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
             android:background="@color/loginPageBackgroundColor">
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:orientation="vertical"
             android:padding="24dp"
-            android:paddingTop="16dp">
+            android:paddingTop="16dp"
+            android:background="@color/colorPrimary">
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvId"
-                    android:padding="16dp"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:padding="16dp"
+                  android:layout_margin="8dp"
+                  android:background="@color/catFactBackgroundColor"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toStartOf="@id/tvId"
+                  app:layout_constraintBottom_toTopOf="@id/labelUsed"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:text="@string/id"
+                  android:id="@+id/labelId"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvUsed"
-                    android:padding="16dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvId"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelId"
+                app:layout_constraintBottom_toTopOf="@id/tvUsed"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvSource"
-                    android:padding="16dp"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:padding="16dp"
+                  android:layout_margin="8dp"
+                  android:background="@color/catFactBackgroundColor"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/labelId"
+                  app:layout_constraintEnd_toStartOf="@id/tvUsed"
+                  app:layout_constraintBottom_toTopOf="@id/labelSource"
+                  android:text="@string/used"
+                  android:id="@+id/labelUsed"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvType"
-                    android:padding="16dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                app:layout_constraintStart_toEndOf="@id/labelUsed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvId"
+                app:layout_constraintBottom_toTopOf="@id/tvSource"
+                android:id="@+id/tvUsed"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvDeleted"
-                    android:padding="16dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelUsed"
+                app:layout_constraintEnd_toStartOf="@id/tvSource"
+                app:layout_constraintBottom_toTopOf="@id/labelType"
+                android:text="@string/source"
+                android:id="@+id/labelSource"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvV"
-                    android:padding="16dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                app:layout_constraintStart_toEndOf="@id/labelSource"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvUsed"
+                app:layout_constraintBottom_toTopOf="@id/tvType"
+                android:id="@+id/tvSource"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvText"
-                    android:padding="16dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvType"
+                app:layout_constraintTop_toBottomOf="@id/labelSource"
+                app:layout_constraintBottom_toTopOf="@id/labelDeleted"
+                android:text="@string/type"
+                android:id="@+id/labelType"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvUpdatedAt"
-                    android:padding="16dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                app:layout_constraintStart_toEndOf="@id/labelType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSource"
+                app:layout_constraintBottom_toTopOf="@id/tvDeleted"
+                android:id="@+id/tvType"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvCreatedAt"
-                    android:padding="16dp"/>
-    </LinearLayout>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelType"
+                app:layout_constraintEnd_toStartOf="@id/tvDeleted"
+                app:layout_constraintBottom_toTopOf="@id/labelV"
+                android:padding="16dp"
+                android:text="@string/deleted"
+                android:id="@+id/labelDeleted"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/labelDeleted"
+                app:layout_constraintTop_toBottomOf="@id/tvType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvV"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:id="@+id/tvDeleted"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelDeleted"
+                app:layout_constraintEnd_toStartOf="@id/tvV"
+                app:layout_constraintBottom_toTopOf="@id/labelText"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:text="@string/v"
+                android:id="@+id/labelV"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/labelV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDeleted"
+                app:layout_constraintBottom_toTopOf="@id/tvText"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:id="@+id/tvV"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelV"
+                app:layout_constraintEnd_toStartOf="@+id/tvText"
+                app:layout_constraintBottom_toTopOf="@id/labelUpdatedAt"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:text="@string/text"
+                android:id="@+id/labelText" app:layout_constraintHorizontal_bias="0.5"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/labelText"
+                app:layout_constraintTop_toBottomOf="@id/tvV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvUpdatedAt"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:id="@+id/tvText"
+                android:text=""
+                app:layout_constraintHorizontal_bias="0.5"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelText"
+                app:layout_constraintEnd_toStartOf="@id/tvUpdatedAt"
+                app:layout_constraintBottom_toTopOf="@id/labelUpdatedAt"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:text="@string/updatedat"
+                android:id="@+id/labelUpdatedAt"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/labelUpdatedAt"
+                app:layout_constraintTop_toBottomOf="@id/tvText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvUpdatedAt"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:id="@+id/tvUpdatedAt"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelUpdatedAt"
+                app:layout_constraintEnd_toStartOf="@id/tvCreatedAt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:text="@string/createdat"
+                android:id="@+id/labelCreatedAt"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/labelCreatedAt"
+                app:layout_constraintTop_toBottomOf="@id/tvUpdatedAt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="16dp"
+                android:layout_margin="8dp"
+                android:background="@color/catFactBackgroundColor"
+                android:id="@+id/tvCreatedAt"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
