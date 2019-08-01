@@ -3,7 +3,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
             android:background="@color/loginPageBackgroundColor">
-
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,8 +20,8 @@
                   android:background="@color/catFactBackgroundColor"
                   app:layout_constraintStart_toStartOf="parent"
                   app:layout_constraintEnd_toStartOf="@id/tvId"
-                  app:layout_constraintBottom_toTopOf="@id/labelUsed"
-                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintBottom_toBottomOf="@id/tvId"
+                  app:layout_constraintTop_toTopOf="@id/tvId"
                   android:text="@string/id"
                   android:id="@+id/labelId"/>
 
@@ -44,9 +43,9 @@
                   android:layout_margin="8dp"
                   android:background="@color/catFactBackgroundColor"
                   app:layout_constraintStart_toStartOf="parent"
-                  app:layout_constraintTop_toBottomOf="@id/labelId"
+                  app:layout_constraintTop_toTopOf="@id/tvUsed"
                   app:layout_constraintEnd_toStartOf="@id/tvUsed"
-                  app:layout_constraintBottom_toTopOf="@id/labelSource"
+                  app:layout_constraintBottom_toBottomOf="@id/tvUsed"
                   android:text="@string/used"
                   android:id="@+id/labelUsed"/>
 
@@ -69,9 +68,9 @@
                 android:layout_margin="8dp"
                 android:background="@color/catFactBackgroundColor"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/labelUsed"
+                app:layout_constraintTop_toTopOf="@id/tvSource"
                 app:layout_constraintEnd_toStartOf="@id/tvSource"
-                app:layout_constraintBottom_toTopOf="@id/labelType"
+                app:layout_constraintBottom_toBottomOf="@id/tvSource"
                 android:text="@string/source"
                 android:id="@+id/labelSource"/>
 
@@ -83,7 +82,7 @@
                 android:background="@color/catFactBackgroundColor"
                 app:layout_constraintStart_toEndOf="@id/labelSource"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvUsed"
+                app:layout_constraintTop_toBottomOf="@id/tvId"
                 app:layout_constraintBottom_toTopOf="@id/tvType"
                 android:id="@+id/tvSource"/>
 
@@ -95,8 +94,8 @@
                 android:background="@color/catFactBackgroundColor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvType"
-                app:layout_constraintTop_toBottomOf="@id/labelSource"
-                app:layout_constraintBottom_toTopOf="@id/labelDeleted"
+                app:layout_constraintTop_toTopOf="@id/tvType"
+                app:layout_constraintBottom_toBottomOf="@id/tvType"
                 android:text="@string/type"
                 android:id="@+id/labelType"/>
 
@@ -109,7 +108,7 @@
                 app:layout_constraintStart_toEndOf="@id/labelType"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSource"
-                app:layout_constraintBottom_toTopOf="@id/tvDeleted"
+                app:layout_constraintBottom_toBottomOf="@id/tvDeleted"
                 android:id="@+id/tvType"/>
 
         <TextView
@@ -118,9 +117,9 @@
                 android:background="@color/catFactBackgroundColor"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/labelType"
+                app:layout_constraintTop_toTopOf="@id/tvDeleted"
                 app:layout_constraintEnd_toStartOf="@id/tvDeleted"
-                app:layout_constraintBottom_toTopOf="@id/labelV"
+                app:layout_constraintBottom_toBottomOf="@id/tvDeleted"
                 android:padding="16dp"
                 android:text="@string/deleted"
                 android:id="@+id/labelDeleted"/>
@@ -141,9 +140,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/labelDeleted"
+                app:layout_constraintTop_toTopOf="@id/tvV"
                 app:layout_constraintEnd_toStartOf="@id/tvV"
-                app:layout_constraintBottom_toTopOf="@id/labelText"
+                app:layout_constraintBottom_toBottomOf="@id/tvV"
                 android:padding="16dp"
                 android:layout_margin="8dp"
                 android:background="@color/catFactBackgroundColor"
@@ -166,14 +165,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/labelV"
+                app:layout_constraintTop_toTopOf="@id/tvText"
                 app:layout_constraintEnd_toStartOf="@+id/tvText"
-                app:layout_constraintBottom_toTopOf="@id/labelUpdatedAt"
+                app:layout_constraintBottom_toBottomOf="@id/tvText"
                 android:padding="16dp"
                 android:layout_margin="8dp"
                 android:background="@color/catFactBackgroundColor"
                 android:text="@string/text"
-                android:id="@+id/labelText" app:layout_constraintHorizontal_bias="0.5"/>
+                android:id="@+id/labelText"/>
 
         <TextView
                 android:layout_width="0dp"
@@ -193,9 +192,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/labelText"
+                app:layout_constraintTop_toTopOf="@id/tvUpdatedAt"
                 app:layout_constraintEnd_toStartOf="@id/tvUpdatedAt"
-                app:layout_constraintBottom_toTopOf="@id/labelUpdatedAt"
+                app:layout_constraintBottom_toBottomOf="@id/tvUpdatedAt"
                 android:padding="16dp"
                 android:layout_margin="8dp"
                 android:background="@color/catFactBackgroundColor"
@@ -218,9 +217,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/labelUpdatedAt"
+                app:layout_constraintTop_toTopOf="@id/tvCreatedAt"
                 app:layout_constraintEnd_toStartOf="@id/tvCreatedAt"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tvCreatedAt"
+
                 android:padding="16dp"
                 android:layout_margin="8dp"
                 android:background="@color/catFactBackgroundColor"
@@ -233,7 +233,7 @@
                 app:layout_constraintStart_toEndOf="@id/labelCreatedAt"
                 app:layout_constraintTop_toBottomOf="@id/tvUpdatedAt"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+
                 android:padding="16dp"
                 android:layout_margin="8dp"
                 android:background="@color/catFactBackgroundColor"
