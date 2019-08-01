@@ -8,10 +8,10 @@ import androidx.fragment.app.FragmentManager
 class Router {
 
     private lateinit var fragmentManager: FragmentManager
-    private  var containerId: Int = 0
+    private var containerId: Int = 0
     private lateinit var finishActivity: () -> Unit
 
-    fun initRouter(fragmentManager: FragmentManager, containerId: Int , finishActivity: () -> Unit) {
+    fun initRouter(fragmentManager: FragmentManager, containerId: Int, finishActivity: () -> Unit) {
         this.fragmentManager = fragmentManager
         this.containerId = containerId
         this.finishActivity = finishActivity

@@ -9,28 +9,28 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
 @InjectViewState
-class CatFactPresenter : MvpPresenter<CatFactMvpView>(){
+class CatFactPresenter : MvpPresenter<CatFactMvpView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         viewState.refresh()
     }
 
-    fun loadCatFact(id: String){
+    fun loadCatFact(id: String) {
         DataInteractor.getCatFact(id)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onGetCatFactsList(event : Events.OnGetCatFactReceived){
+    fun onGetCatFactsList(event: Events.OnGetCatFactReceived) {
         event.catFact
         viewState.showCatFact(event.catFact)
     }
 
-    fun onStart(){
+    fun onStart() {
         EventBus.getDefault().register(this)
     }
 
-    fun onStop(){
+    fun onStop() {
         EventBus.getDefault().unregister(this)
     }
 

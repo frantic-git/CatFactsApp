@@ -16,37 +16,37 @@ class CatFactsListPresenter : MvpPresenter<CatFactsListMvpView>() {
         viewState.refresh()
     }
 
-    fun getCatFactsList(){
+    fun getCatFactsList() {
         viewState.onStartLoading()
         DataInteractor.getCatFactsList()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onGetCatFactsList(event : Events.OnGetCatFactsListReceived){
+    fun onGetCatFactsList(event: Events.OnGetCatFactsListReceived) {
         viewState.setItemList(event.catFactsListReceived)
         viewState.onFinishLoading()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun btnFavoriteOnClick(event : Events.OnBtnFavoriteClickReceived){
+    fun btnFavoriteOnClick(event: Events.OnBtnFavoriteClickReceived) {
         DataInteractor.updatePreference(event.adapterPositon, event.id, event.preference)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onUpdatePreference(event: Events.OnUpdatePreferenceReceived){
+    fun onUpdatePreference(event: Events.OnUpdatePreferenceReceived) {
         viewState.updatePreference(event.adapterPositon, event.preference)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onDataBaseExceptionReceived(event: Events.OnDataBaseExceptionReceived){
+    fun onDataBaseExceptionReceived(event: Events.OnDataBaseExceptionReceived) {
         viewState.showDataBaseException(event.e)
     }
 
-    fun onStart(){
+    fun onStart() {
         EventBus.getDefault().register(this)
     }
 
-    fun onStop(){
+    fun onStop() {
         EventBus.getDefault().unregister(this)
     }
 

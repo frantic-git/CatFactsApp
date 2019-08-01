@@ -11,5 +11,5 @@ interface CatFactMvpView : MvpView {
     fun refresh()
 
     @StateStrategyType(SkipStrategy::class)
-    fun showCatFact(catFact:CatFactsEntity)
+    fun showCatFact(catFact: CatFactsEntity)
 }

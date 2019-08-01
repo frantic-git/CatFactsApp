@@ -18,13 +18,13 @@ class LoginPresenter : MvpPresenter<LoginMvpView>() {
         viewState.refresh()
     }
 
-    fun nextBtnOnClick(login: String, password: String){
+    fun nextBtnOnClick(login: String, password: String) {
         var error = false
-        if (login.isEmpty()){
+        if (login.isEmpty()) {
             viewState.showLoginError()
             error = true
         }
-        if (password.isEmpty()){
+        if (password.isEmpty()) {
             viewState.showPasswordError()
             error = true
         }
@@ -32,19 +32,19 @@ class LoginPresenter : MvpPresenter<LoginMvpView>() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onCheckLoginPassword(event : Events.OnCheckLoginPasswordReceived){
-        if (event.checked){
+    fun onCheckLoginPassword(event: Events.OnCheckLoginPasswordReceived) {
+        if (event.checked) {
             App.fragmentRouter.replace(Screens.FRAGMENTS.CAT_FACTS_LIST_FRAGMENT, null)
         } else {
             viewState.showPasswordError()
         }
     }
 
-    fun onStart(){
+    fun onStart() {
         EventBus.getDefault().register(this)
     }
 
-    fun onStop(){
+    fun onStop() {
         EventBus.getDefault().unregister(this)
     }
 }

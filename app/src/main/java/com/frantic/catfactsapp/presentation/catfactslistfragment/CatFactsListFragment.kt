@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_cat_facts_list.*
 import kotlinx.android.synthetic.main.fragment_cat_facts_list.view.*
 import java.lang.Exception
 
-class CatFactsListFragment :  MvpAppCompatFragment(), CatFactsListMvpView {
+class CatFactsListFragment : MvpAppCompatFragment(), CatFactsListMvpView {
 
     @InjectPresenter
     lateinit var presenter: CatFactsListPresenter
@@ -46,7 +46,7 @@ class CatFactsListFragment :  MvpAppCompatFragment(), CatFactsListMvpView {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
-        if (item?.itemId == R.id.favorite){
+        if (item?.itemId == R.id.favorite) {
             App.fragmentRouter.replace(Screens.FRAGMENTS.CAT_FAVORITE_LIST_FRAGMENT, null)
         }
 

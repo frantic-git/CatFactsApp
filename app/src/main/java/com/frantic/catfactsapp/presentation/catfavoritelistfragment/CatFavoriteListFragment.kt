@@ -13,7 +13,7 @@ import com.frantic.catfactsapp.R
 import com.frantic.catfactsapp.presentation.catfactslistfragment.CatFactItem
 import kotlinx.android.synthetic.main.fragment_cat_favorite_list.*
 
-class CatFavoriteListFragment:  MvpAppCompatFragment(), CatFavoriteListMvpView {
+class CatFavoriteListFragment : MvpAppCompatFragment(), CatFavoriteListMvpView {
 
     @InjectPresenter
     lateinit var presenter: CatFavoriteListPresenter

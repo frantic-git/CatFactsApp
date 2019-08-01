@@ -9,7 +9,7 @@ import com.frantic.catfactsapp.R
 import com.frantic.catfactsapp.presentation.catfactslistfragment.CatFactItem
 import kotlinx.android.synthetic.main.cat_fact_item.view.*
 
-class CatFavoriteListAdapter : RecyclerView.Adapter<CatFavoriteListAdapter.ViewHolder>(){
+class CatFavoriteListAdapter : RecyclerView.Adapter<CatFavoriteListAdapter.ViewHolder>() {
 
     private var itemsList = mutableListOf<CatFactItem>()
 

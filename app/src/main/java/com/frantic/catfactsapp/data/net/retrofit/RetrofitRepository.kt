@@ -4,11 +4,11 @@ import android.util.Log
 import com.frantic.catfactsapp.App
 
 object RetrofitRepository {
-    suspend fun getCatFactList(): List<CatFact>?{
+    suspend fun getCatFactList(): List<CatFact>? {
         var catFactList: List<CatFact>? = null
         try {
             catFactList = App.catFactsAPI.getRandomCatFactsList().body()
-        } catch (e:Exception){
+        } catch (e: Exception) {
             Log.d("cat_facts_log", "$e")
         }
         return catFactList

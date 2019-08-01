@@ -40,11 +40,11 @@ class LoginFragment : MvpAppCompatFragment(), LoginMvpView {
         (activity as MainActivity).finish()
     }
 
-    private fun loginEditTextOnChanged(){
+    private fun loginEditTextOnChanged() {
         login_text_input.error = null
     }
 
-    private fun passwordEditTextOnChanged(){
+    private fun passwordEditTextOnChanged() {
         password_text_input.error = null
     }
 
